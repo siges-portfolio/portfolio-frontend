@@ -22,7 +22,7 @@
 @each $themeName, $theme in $themes {
   html.#{$themeName}-theme {
     @each $colorName, $hex in $theme {
-      --#{$colorName}-color: #{$hex}
+      --#{$colorName}: #{$hex}
     }
   }
 }
