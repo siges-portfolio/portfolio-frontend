@@ -1,0 +1,108 @@
+@use '_mixins/rem' as *;
+@use "button-color-kit" as *;
+
+.button {
+  --button-icon-size: 40px;
+  min-height: var(--button-height, 40px);
+  min-width: var(--button-height, 40px);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacing-unit) * 2);
+  
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  
+  color: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--font-title);
+  font-weight: 500;
+  
+  // corner-top-right-shape: bevel;
+  // corner-bottom-left-shape: bevel;
+  // border-radius: 
+  // 12px 12px
+  // 12px 12px /
+  // 10px 10px
+  // 10px 10px;
+  border-radius: var(--button-border-radius, var(--radius-sm));
+  padding: 0 var(--button-padding-x, calc(var(--spacing-unit) * 6));
+  font-size: var(--button-font-size, 12px);
+  
+  cursor: pointer;
+  
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  transform-origin: center;
+  
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  &.loading {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  
+  
+  &--xs {
+    --button-icon-size: 24px;
+    --button-height: 24px;
+  }
+  
+  &--sm {
+    --button-icon-size: 32px;
+    --button-height: 32px;
+  }
+  
+  &--lg {
+    --button-icon-size: 48px;
+    --button-height: 48px;
+  }
+  
+  @each $kitName, $kit in $button-color-kit {
+    &--#{ "" + $kitName } {
+      @each $colorName, $color in $kit {
+        --button-#{ $colorName }-color: #{ $color };
+      }
+    }
+  }
+}
+
+.button.flat {
+  background-color: transparent;
+  color: var(--button-accent-color);
+  
+  &:hover {
+    color: color-mix(in srgb, var(--neutral-50-color) 0%, var(--neutral-100-color));
+    background-color: color-mix(in srgb, var(--button-accent-color) 10%, transparent);
+  }
+}
+
+.button.filled {
+  background-color: var(--button-accent-color);
+  color: var(--button-secondary-color);
+  
+  &:hover,
+  &.active {
+    background-color: var(--button-hover-color);
+  }
+  
+  &:active,
+  &:focus {
+    background-color: color-mix(in srgb, var((--button-hover-color) 90%, white));
+  }
+}
+
+.button.outlined {
+  border: 2px solid var(--button-accent-color);
+  color: var(--button-accent-color);
+  
+  &:hover {
+    background-color: color-mix(in srgb, var(--button-accent-color) 10%, transparent);
+  }
+}

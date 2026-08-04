@@ -1,0 +1,26 @@
+@use '_mixins/rem' as *;
+
+.main-logo {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    gap: rem(16px);
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    &.primary {
+        color: var(--neutral-100);
+    }
+
+    &.secondary {
+        color: var(--neutral-0);
+    }
+
+    img {
+        width: rem(24px);
+    }
+}

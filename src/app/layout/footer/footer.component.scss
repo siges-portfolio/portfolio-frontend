@@ -1,0 +1,58 @@
+@use '_mixins/rem' as *;
+
+:host {
+    background-color: var(--neutral-100);
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    padding-top: rem(48px);
+    padding-bottom: rem(48px);
+    color: var(--neutral-0);
+    
+    &__about,
+    &__rights {
+        color: var(--neutral-60);
+        font-size: 13px;
+    }
+
+    &__about {
+        display: flex;
+        align-items: center;
+        gap: rem(16px);
+
+        justify-self: start;
+    }
+
+    &__rights {
+        justify-self: center;
+    }
+
+    &__links {
+        justify-self: end;
+    }
+
+    &__links-list {
+        display: flex;
+        align-items: center;
+        gap: rem(16px);
+
+        color: var(--neutral-60);
+    }
+
+    &__links-item a {
+        display: flex;
+        transition: color var(--transition-slow);
+
+        &:hover {
+            color: var(--neutral-0);
+        }
+
+        mat-icon {
+            width: rem(20px);
+            height: rem(20px);
+        }
+    }
+}

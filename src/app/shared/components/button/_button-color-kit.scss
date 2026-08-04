@@ -1,0 +1,12 @@
+$button-color-kit: (
+  primary: (
+    accent: var(--primary),
+    hover: var(--neutral-100),
+    secondary: var(--neutral-0),
+  ),
+  dark: (
+    accent: var(--neutral-100),
+    hover: var(--primary),
+    secondary: var(--neutral-0),
+  ),
+)
