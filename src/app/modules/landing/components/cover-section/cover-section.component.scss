@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     
-    position: relative;
     min-height: max(100dvh, 920px);
     
     &__grid {
@@ -17,7 +16,6 @@
         background-image: repeating-linear-gradient(to right,transparent,transparent calc(100% / var(--columns) - 1px),var(--divider) calc(100% / var(--columns) - 1px),var(--divider) calc(100% / var(--columns)));
     }
     
-    
     &__container {
         flex-grow: 1;
         
@@ -28,16 +26,22 @@
 
         padding-top: 64px;
     }
+
+    &__title-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     
     &__title {
-        word-spacing: 100vw;
-        font-weight: 900;
-        font-size: rem(106px);
-        line-height: 90%;
         
-        span {
-            color: var(--primary)
-        }
+    }
+
+    &__contacts {
+        min-width: 280px;
+
+        display: flex;
+        justify-content: center;
     }
     
     &__subtitle {
@@ -117,12 +121,15 @@
         justify-content: space-between;
     }
     
-    &__footer {
+    &__footer {    
+        --animation-delay: 0.5s;
+    }
+
+    &__footer-inner {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         gap: rem(32px);
-        
+
         padding: rem(48px) 0;
         border-top: 1px solid var(--border);
     }
@@ -132,10 +139,60 @@
         align-items: center;
         gap: 8px;
         line-height: 100%;
+        font-weight: 500;
+        font-size: 14px;
         color: var(--neutral-60);
         
         mat-icon {
             color: var(--neutral-100)
         }
-    } 
+    }
+
+    &__availability {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: var(--success);
+        
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    &__availability-dot {
+        position: relative;
+        width: 12px;
+        height: 12px;
+        
+        span:first-child {
+            position: absolute;
+            inset: 0;
+            
+            background-color: var(--success);
+            border-radius: 50%;
+            opacity: 0.75;
+        }
+        
+        span:last-child {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            height: 18px;
+            width: 18px;
+            
+            border: 2px solid var(--success);
+            border-radius: 30px;
+            
+            animation: pulsate 1s ease-out;
+            animation-iteration-count: infinite; 
+            opacity: 0    
+        }
+    }
+}
+
+@keyframes pulsate {
+    0% {transform: translate(-50%, -50%) scale(0.1, 0.1); opacity: 0;}
+    50% {opacity: 1.0;}
+    100% {transform: translate(-50%, -50%) scale(1.2, 1.2); opacity: 0;}
 }

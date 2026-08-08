@@ -1,0 +1,16 @@
+.cover-title {
+    word-spacing: 100vw;
+    font-weight: 900;
+    font-size: clamp(48px, 5.5vw, 106px);
+    line-height: 90%;
+    
+    &__word {
+        &:last-child {
+            color: var(--primary);
+        }
+    }
+
+    &__symbol {
+        display: inline-block;
+    }
+}

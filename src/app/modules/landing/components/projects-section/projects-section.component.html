@@ -1,0 +1,55 @@
+<div class="projects">
+  <div class="projects__container container">
+    <div
+      scrollAnimation="fadeInLeft"
+      animationRangeStart="contain 0%"
+      animationRangeEnd="contain 75%"
+    >
+      <div class="section-tag">
+        <span>02</span>
+        <span>Projects</span>
+      </div>
+      <h2 class="section-title">Selected Work</h2>
+    </div>
+    <div class="projects__list">
+      @for (project of projects; track project.title; let index = $index) {
+        <details name="projects" class="project projects__item">
+          <summary class="project__summary">
+            <div class="project__title-wrapper">
+              <div class="project__number">{{ `0${index + 1}` }}</div>
+              <h4 class="project__title">{{ project.title }}</h4>
+            </div>
+            <div class="project__stats">
+              <div class="project__date">{{ project.year }}</div>
+              <div class="project__technologies">
+                @for (summarySkill of project.summarySkills; track summarySkill) {
+                  <div class="project__technology">{{ summarySkill }}</div>
+                }
+              </div>
+            </div>
+            <div class="project__marker"></div>
+          </summary>
+          <div class="project__content">
+            <div class="project__content-image">
+              <img [attr.src]="`assets/webp/projects/${project.image}`" [attr.alt]="project.title">
+            </div>
+            <div class="project__content-info">
+              <div class="project__content-description" [innerHTML]="project.description"></div>
+              <div class="project__technologies">
+                @for (skill of project.skills; track skill) {
+                  <div class="project__technology">{{ skill }}</div>
+                }
+              </div>
+              <div class="project__content-links">
+                <a button-filled color="dark" [attr.href]="project.link" target="_blank">
+                  <span>Link</span>
+                  <mat-icon class="material-symbols-outlined" fontIcon="arrow_outward"></mat-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+@use '_mixins/rem' as *;
+
+.tech-stack {   
+    &__title {
+        color: var(--neutral-0);
+    }
+    
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1px;
+        
+        border: 1px solid var(--neutral-80);
+        background-color: var(--neutral-90);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
+    
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: rem(24px);
+        
+        cursor: default;
+        background-color: var(--neutral-100);
+        
+        transition: background-color var(--transition-fast);
+        
+        &:hover {
+            background-color: color-mix(in srgb, var(--neutral-0) 1%, transparent 99%);
+            
+            .tech-stack {
+                &__item-title {
+                    color: var(--primary)
+                }
+
+                &__item-subtitle {
+                    color: var(--neutral-60)
+                }
+            }
+        }
+    }
+    
+    &__item-title {
+        font-weight: 600;
+        transition: color var(--transition-fast);
+    }
+    
+    &__item-subtitle {
+        font-size: 12px;
+        color: var(--neutral-70)
+    }
+}

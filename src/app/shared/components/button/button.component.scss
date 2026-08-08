@@ -21,13 +21,6 @@
   font-family: var(--font-title);
   font-weight: 500;
   
-  // corner-top-right-shape: bevel;
-  // corner-bottom-left-shape: bevel;
-  // border-radius: 
-  // 12px 12px
-  // 12px 12px /
-  // 10px 10px
-  // 10px 10px;
   border-radius: var(--button-border-radius, var(--radius-sm));
   padding: 0 var(--button-padding-x, calc(var(--spacing-unit) * 6));
   font-size: var(--button-font-size, 12px);

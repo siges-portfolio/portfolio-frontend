@@ -1,0 +1,194 @@
+.animation {
+  --animation-duration: 1500ms;
+  --animation-delay: 0ms;
+  --animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --animation-fill-mode: both;
+
+  --animation-offset: 24px;
+  --animation-scale: 0.9;
+  --animation-blur: 10px;
+  --animation-angle: -5deg;
+
+  animation:
+    var(--animation-name)
+    var(--animation-duration)
+    var(--animation-easing)
+    var(--animation-delay)
+    var(--animation-fill-mode);
+}
+
+.fade-in {
+  --animation-name: fade-in;
+}
+
+.fade-up {
+  --animation-name: fade-up;
+}
+
+.fade-down {
+  --animation-name: fade-down;
+}
+
+.fade-left {
+  --animation-name: fade-left;
+}
+
+.fade-right {
+  --animation-name: fade-right;
+}
+
+.scale-in {
+  --animation-name: scale-in;
+}
+
+.blur-in {
+  --animation-name: blur-in;
+}
+
+.blur-up {
+  --animation-name: blur-up;
+}
+
+.reveal-down {
+  --animation-name: reveal-down;
+}
+
+.reveal-right {
+  --animation-name: reveal-right;
+}
+
+.rotate-in {
+  --animation-name: rotate-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--animation-offset));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--animation-offset) * -1));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(var(--animation-offset));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--animation-offset) * -1));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(var(--animation-scale));
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(var(--animation-blur));
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes blur-up {
+  from {
+    opacity: 0;
+    filter: blur(var(--animation-blur));
+    transform: translateY(var(--animation-offset));
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-down {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes rotate-in {
+  from {
+    opacity: 0;
+    transform:
+      rotate(var(--animation-angle))
+      translateY(var(--animation-offset));
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      rotate(0)
+      translateY(0);
+  }
+}

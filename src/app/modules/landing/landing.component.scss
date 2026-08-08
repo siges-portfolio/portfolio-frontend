@@ -1,0 +1,80 @@
+@use "_mixins/rem" as *;
+
+.section {
+    position: relative;
+    background-color: var(--neutral-0);
+    
+    &--experience,
+    &--contact {
+        position: sticky;
+        top: 0;
+    }
+    
+    &--contact {
+        min-height: 100dvh;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        box-sizing: border-box;
+    }
+    
+    &--tech-stack {
+        background-color: var(--neutral-100);
+        color: var(--neutral-0);
+    }
+    
+    &--projects {
+        background-color: var(--neutral-0);
+    }
+    
+    &--experience {
+        background-color: var(--neutral-10);
+    }
+    
+    &--padding {
+        padding: clamp(32px, 7vw, 128px) 0;
+    }
+}
+
+.section-tag {
+    display: flex;
+    align-items: center;
+    gap: rem(16px);
+    
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 100%;
+    
+    color: var(--neutral-60);
+    
+    span:first-child {
+        display: flex;
+        align-items: center;
+        gap: rem(16px);
+        color: var(--primary);
+        
+        &:after {
+            content: '';
+            height: 1px;
+            width: 42px;
+            background-color: var(--primary);
+        }
+    }
+    
+    span:last-child {
+        letter-spacing: 1.5px;
+    }
+}
+
+.section-title {
+    margin: rem(16px) 0 rem(52px);
+    font-size: clamp(24px, 3vw, 52px);
+    font-weight: 900;
+    
+    span {
+        color: var(--primary)
+    }
+}

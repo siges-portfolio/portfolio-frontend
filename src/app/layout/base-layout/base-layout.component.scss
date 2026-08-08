@@ -6,6 +6,10 @@
 }
 
 .base-layout {
+    &__header {
+        --animation-delay: 0.5s;
+    }
+
     &__footer {
         margin-top: auto;
     }

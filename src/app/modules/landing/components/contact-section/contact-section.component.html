@@ -1,0 +1,40 @@
+<div class="contact">
+    <div class="contact__container container">
+        <div class="contact__content">
+            <div
+                scrollAnimation="fadeInLeft"
+                animationRangeStart="contain 0%"
+                animationRangeEnd="contain 75%"
+            >
+                <div class="section-tag">
+                    <span>04</span>
+                    <span>contact</span>
+                </div>
+                <h4 class="section-title contact__title">Let's build <span>something great.</span></h4>
+            </div>
+            <div class="contact__description">Open for new opportunities. Based in Ukraine, available for remote and hybrid engagements (Kyiv/Dnipro). Always happy to discuss new projects, long-term collaborations, or freelance opportunities.</div>
+            <app-contacts class="contact__links"></app-contacts>
+        </div>
+        <form [formGroup]="contactForm" class="contact__form">
+            <form-field>
+                <mat-icon form-prefix autofocus class="material-symbols-outlined" fontIcon="account_circle"></mat-icon>
+                <span form-label-prefix>Full Name</span>
+                <input rs-input type="email" autocomplete="off" [placeholder]="'John Smith'" formControlName="name">
+            </form-field>
+            <form-field>
+                <mat-icon form-prefix autofocus class="material-symbols-outlined" fontIcon="alternate_email"></mat-icon>
+                <span form-label-prefix>Email Address</span>
+                <input rs-input type="email" autocomplete="off" [placeholder]="'example@gmail.com'" formControlName="email">
+            </form-field>
+            <form-field>
+                <mat-icon form-prefix autofocus class="material-symbols-outlined" fontIcon="chat_bubble"></mat-icon>
+                <span form-label-prefix>Message</span>
+                <textarea rs-input rows="6" autocomplete="off" [placeholder]="'example@gmail.com'" formControlName="message"></textarea>
+            </form-field>
+            <button button-filled size="lg" color="dark" type="button" [disabled]="contactForm.invalid" [loading]="false">
+                <span>Send message</span>
+                <mat-icon class="material-symbols-outlined" fontIcon="arrow_outward"></mat-icon>
+            </button>
+        </form>
+    </div>
+</div>

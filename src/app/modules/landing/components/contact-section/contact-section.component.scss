@@ -1,0 +1,39 @@
+@use "_mixins/rem" as *;
+
+.contact {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: rem(32px);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: rem(48px);
+
+        flex-grow: 1;
+        max-width: min(520px, 100%);
+    }
+
+    &__title {
+        line-height: 1;
+        margin-bottom: 0;
+    }
+
+    &__description {
+        line-height: 2;
+        font-size: 14px;
+        color: var(--neutral-60);
+    }
+
+    &__form {
+        max-width: min(580px, 100%);
+
+        display: flex;
+        flex-direction: column;
+        gap: rem(32px);
+        flex-grow: 1;
+    }
+}

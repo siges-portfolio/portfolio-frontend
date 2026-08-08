@@ -1,0 +1,15 @@
+<h1 class="cover-title">
+    @for (word of words(); track word) {
+        <div class="cover-title__word">
+            @for (symbol of word.split(''); track symbol; let index = $index) {
+                <span 
+                    class="cover-title__symbol"
+                    scrollAnimation="fadeOutUp"
+                    [animationRangeStart]="`contain ${ 80 + (index * 2) }%`"
+                    animationOffset="48px"
+                    animationRangeEnd="exit"
+                >{{ symbol }}</span>
+            }
+        </div>
+    }
+</h1>

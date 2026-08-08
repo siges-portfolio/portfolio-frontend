@@ -1,0 +1,109 @@
+@supports (animation-timeline: view()) {
+  [scrollAnimation] {
+    opacity: 1;
+    animation-name: scrollAnimation;
+    animation-duration: var(--scroll-animation-duration, 0.8s);
+    animation-delay: var(--scroll-animation-delay, 0s);
+    animation-timing-function: var(--scroll-animation-easing, cubic-bezier(0.22, 1, 0.36, 1));
+    animation-fill-mode: var(--scroll-animation-fill-mode, both);
+    animation-timeline: view();
+    animation-range: var(--scroll-animation-range-start, entry 0%) var(--scroll-animation-range-end, exit 100%);
+  }
+}
+
+@keyframes scrollAnimation {
+  from {
+    opacity: var(--animation-opacity-from, 0);
+    translate: var(--animation-translate-from, 0 0);
+    scale: var(--animation-scale-from, 1);
+    rotate: var(--animation-rotate-from, 0deg);
+  }
+
+  to {
+    opacity: var(--animation-opacity-to, 1);
+    translate: var(--animation-translate-to, 0 0);
+    scale: var(--animation-scale-to, 1);
+    rotate: var(--animation-rotate-to, 0deg);
+  }
+}
+
+[scrollAnimation='fadeIn'] {
+  --animation-opacity-from: 0;
+  --animation-opacity-to: 1;
+}
+
+[scrollAnimation='fadeInLeft'] {
+  --animation-opacity-from: 0;
+  --animation-opacity-to: 1;
+  --animation-translate-from: var(--scroll-animation-offset, 24px) 0;
+  --animation-translate-to: 0 0;
+}
+
+[scrollAnimation='fadeInUp'] {
+  --animation-opacity-from: 0;
+  --animation-opacity-to: 1;
+  --animation-translate-from: 0 var(--scroll-animation-offset, 24px);
+  --animation-translate-to: translateY(0);
+}
+
+[scrollAnimation='fadeOut'] {
+  --animation-opacity-from: 1;
+  --animation-opacity-to: 0;
+}
+
+[scrollAnimation='fadeOutUp'] {
+  --animation-opacity-from: 1;
+  --animation-opacity-to: 0;
+  --animation-translate-from: 0 0;
+  --animation-translate-to: 0 calc(-1 * var(--scroll-animation-offset, 24px));
+}
+
+[scrollAnimation='fadeInBoth'] {
+    animation-name: fadeInBoth;
+}
+
+@keyframes fadeInBoth {
+  0% {
+    opacity: var(--animation-opacity-from, 0);
+    transform: var(--animation-translate-from, translateY(var(--scroll-animation-offset, 24px)));
+    scale: var(--animation-scale-from, 1);
+  }
+
+  20%,
+  80% {
+    opacity: var(--animation-opacity-to, 1);
+    transform: var(--animation-translate-to, translateY(0));
+    scale: var(--animation-scale-to, 1);
+  }
+
+  to {
+    opacity: var(--animation-opacity-from, 0);
+    transform: var(--animation-translate-to, translateY(calc(-1 * var(--scroll-animation-offset, 24px))));
+    scale: var(--animation-scale-to, 1);
+  }
+}
+
+[scrollAnimation='fadeInLeftBoth'] {
+    animation-name: fadeInLeftBoth;
+}
+
+@keyframes fadeInLeftBoth {
+  0% {
+    opacity: 0;
+    transform: translateX(var(--scroll-animation-offset, 24px));
+    scale: 0.95;
+  }
+
+  40%,
+  80% {
+    opacity: 1;
+    transform: translateX(0);
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-48px);
+    scale: 0.95;
+  }
+}

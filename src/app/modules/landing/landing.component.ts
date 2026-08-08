@@ -1,10 +1,16 @@
-import { Component } from "@angular/core";
+import { Component, ViewEncapsulation } from "@angular/core";
 import { CoverSectionComponent } from "./components/cover-section/cover-section.component";
+import { TechStackComponent } from "./components/tech-stack-seciton/tech-stack.component";
+import { ProjectsSectionComponent } from "./components/projects-section/projects-section.component";
+import { ExperienceSectionComponent } from "./components/experience-section/experience-section.component";
+import { ContactSectionComponent } from "./components/contact-section/contact-section.component";
+import { ScrollAnimationDirective } from "@shared/directives/scroll-animation.directive";
 
 @Component({
     selector: 'app-landing',
     templateUrl: './landing.component.html',
     styleUrls: ['./landing.component.scss'],
-    imports: [CoverSectionComponent]
+    encapsulation: ViewEncapsulation.None,
+    imports: [CoverSectionComponent, TechStackComponent, ProjectsSectionComponent, ExperienceSectionComponent, ContactSectionComponent, ScrollAnimationDirective]
 })
 export class LandingComponent {}

@@ -1,10 +1,25 @@
 <div class="cover">
     <div class="cover__grid"></div>
     <div class="cover__container container">
-        <h1 class="cover__title">Angular Frontend <span>Developer.</span></h1>
-        <div class="cover__content">
-            <div class="cover__description">Frontend Engineer specializing in Angular v14-21, RxJS, Typescript. 4 years experience in developing modern applications using Angular. Passionate about writing clean, reusable code and creating intuitive user experiences.</div>
-            <ul class="cover__stats list-style-none">
+        <div class="cover__title-wrapper">
+            <cover-title animate.enter="animation fade-down" class="cover__title" title="Angular Frontend Developer"></cover-title>
+            <div class="cover__contacts" animate.enter="animation fade-down">
+                <app-contacts></app-contacts>
+            </div>
+        </div>
+        <div class="cover__content" animate.enter="animation scale-in">
+            <div
+                class="cover__description"
+                scrollAnimation="fadeOutUp"
+                animationRangeStart="contain 75%"
+                animationRangeEnd="exit"
+            >Frontend Engineer specializing in Angular v14-21, RxJS, Typescript. 4 years experience in developing modern applications using Angular. Passionate about writing clean, reusable code and creating intuitive user experiences.</div>
+            <ul 
+                class="cover__stats list-style-none"
+                scrollAnimation="fadeOutUp"
+                animationRangeStart="contain 80%"
+                animationRangeEnd="exit"
+            >
                 <li class="cover__stat">
                     <div class="cover__stat-value">4+</div>
                     <div class="cover__stat-title">years <br> experience</div>
@@ -18,7 +33,12 @@
                     <div class="cover__stat-title">hourly <br> rate</div>
                 </li>
             </ul>
-            <div class="cover__actions">
+            <div
+                class="cover__actions"
+                scrollAnimation="fadeOutUp"
+                animationRangeStart="contain 85%"
+                animationRangeEnd="exit"
+            >
                 <a button-filled size="lg" class="cover__action" color="dark" href="">
                     <span>View Projects</span>
                     <mat-icon class="material-symbols-outlined" fontIcon="arrow_outward"></mat-icon>
@@ -29,12 +49,26 @@
                 </a>
             </div>
         </div>
-        <div class="cover__footer">
-            <div class="cover__footer-title">
-                <mat-icon class="material-symbols-outlined" fontIcon="location_on"></mat-icon>
-                <span>Work Format · Remove · Hybrid · Office (Kyiv/Dnipro)</span>
+        <div class="cover__footer" animate.enter="animation fade-up">
+            <div
+                class="cover__footer-inner"
+                scrollAnimation="fadeOutUp"
+                animationRangeStart="contain 60%"
+                animationRangeEnd="exit"
+            >
+                <div class="cover__availability">
+                    <div class="cover__availability-dot">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span>Available for new opportunities</span>
+                </div>
+                <div class="cover__footer-title">
+                    <mat-icon class="material-symbols-outlined" fontIcon="location_on"></mat-icon>
+                    <span>Work Format · Remove · Hybrid · Office (Kyiv/Dnipro)</span>
+                </div>
+                <!-- <div class="cover__subtitle">Developer portfolio</div> -->
             </div>
-            <!-- <div class="cover__subtitle">Developer portfolio</div> -->
         </div>
     </div>
 </div>
