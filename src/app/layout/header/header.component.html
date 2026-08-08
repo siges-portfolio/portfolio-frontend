@@ -3,26 +3,14 @@
         <main-logo class="header__logo"></main-logo>
         <nav class="header__navigation">
             <ul class="header__navigation-list list-style-none">
-                <li class="header__navigation-item">
-                    <a href="#" class="header__navigation-link">About</a>
-                </li>
-                <li class="header__navigation-item">
-                    <a href="#" class="header__navigation-link">Projects</a>
-                </li>
-                <li class="header__navigation-item">
-                    <a href="#" class="header__navigation-link">Stack</a>
-                </li>
-                <li class="header__navigation-item">
-                    <a href="#" class="header__navigation-link">Experience</a>
-                </li>
-                <li class="header__navigation-item">
-                    <a href="#" class="header__navigation-link">Contact</a>
-                </li>
+                @for (navigationItem of navigationItems; track navigationItem.label) {
+                    <li (click)="scrollTo(navigationItem.target)" class="header__navigation-item">{{ navigationItem.label }}</li>
+                }
             </ul>
         </nav>
         <div class="header__actions">
             <theme-switcher></theme-switcher>
-            <a button-filled class="header__action" color="dark" href="">Hire me</a>
+            <button type="button" button-filled class="header__action" color="dark" (click)="scrollTo('#contact')">Contact Me</button>
         </div>
     </div>
 </div>

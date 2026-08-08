@@ -39,14 +39,14 @@
                 animationRangeStart="contain 85%"
                 animationRangeEnd="exit"
             >
-                <a button-filled size="lg" class="cover__action" color="dark" href="">
+                <button (click)="scrollTo('#projects')" type="button" button-filled size="lg" class="cover__action" color="dark">
                     <span>View Projects</span>
                     <mat-icon class="material-symbols-outlined" fontIcon="arrow_outward"></mat-icon>
-                </a>
-                <a button-outlined size="lg" class="cover__action" color="dark" href="">
+                </button>
+                <button (click)="scrollTo('#contact')" type="button" button-outlined size="lg" class="cover__action" color="dark">
                     <span>Get in touch</span>
                     <mat-icon class="material-symbols-outlined" fontIcon="arrow_forward"></mat-icon>
-                </a>
+                </button>
             </div>
         </div>
         <div class="cover__footer" animate.enter="animation fade-up">

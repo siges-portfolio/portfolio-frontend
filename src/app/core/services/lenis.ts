@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import Lenis from 'lenis';
 
+export type ScrollToTarget = string | HTMLElement;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +16,7 @@ export class LenisService {
   });
 
   scrollTo(
-    target: string | number | HTMLElement,
+    target: ScrollToTarget,
     options?: Parameters<Lenis['scrollTo']>[1]
   ) {
     this.lenis.scrollTo(target, options);

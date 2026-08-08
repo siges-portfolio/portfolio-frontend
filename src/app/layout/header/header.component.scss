@@ -31,10 +31,12 @@
     &__navigation-list {
         display: flex;
         align-items: center;
-        gap: 8px
+        gap: 8px;
+
+        user-select: none;
     }
-    
-    &__navigation-link {
+
+    &__navigation-item {
         position: relative;
 
         padding: 6px 10px;
@@ -90,6 +92,7 @@
             transform: translate(6px, -4px);
         }
     }
+
     
     &__actions {
         display: flex;
