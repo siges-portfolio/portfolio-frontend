@@ -27,7 +27,9 @@
                 }
               </div>
             </div>
-            <div class="project__marker"></div>
+            @if (!isMobile) {
+              <div class="project__marker"></div>
+            }
           </summary>
           <div class="project__content">
             <div class="project__content-image">
@@ -41,7 +43,7 @@
                 }
               </div>
               <div class="project__content-links">
-                <a button-filled color="dark" [attr.href]="project.link" target="_blank">
+                <a button-filled class="project__content-link" color="dark" [attr.href]="project.link" target="_blank">
                   <span>Link</span>
                   <mat-icon class="material-symbols-outlined" fontIcon="arrow_outward"></mat-icon>
                 </a>

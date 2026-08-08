@@ -5,6 +5,7 @@ import { ContactsComponent } from "@shared/components/contacts/contacts.componen
 import { ScrollAnimationDirective } from "@shared/directives/scroll-animation.directive";
 import { CoverTitleComponent } from "./cover-title/cover-title.component";
 import { LenisService, ScrollToTarget } from "@core/services/lenis";
+import { IS_MOBILE } from "@shared/tokens/is-mobile.token";
 
 @Component({
     selector: "[cover-section]",
@@ -14,6 +15,7 @@ import { LenisService, ScrollToTarget } from "@core/services/lenis";
 })
 export class CoverSectionComponent {
     lenis = inject(LenisService);
+    isMobile = inject(IS_MOBILE);
 
     scrollTo(target: ScrollToTarget) {
         this.lenis.scrollTo(target)

@@ -1,4 +1,5 @@
 @use '_mixins/rem' as *;
+@use '_mixins/breakpoints' as *;
 
 .experience-item {
     display: flex;
@@ -15,7 +16,6 @@
     &__date-wrapper {
         max-width: min(100%, 420px);
         flex-grow: 1;
-        // flex-basis: 0;
 
         display: flex;
         flex-direction: column;
@@ -59,5 +59,12 @@
         margin-top: rem(24px);
 
         font-size: 14px;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .experience-item {
+        padding: 24px 0;
+        flex-direction: column;
     }
 }

@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component, inject, ViewEncapsulation } from "@angular/core";
 import { ButtonComponent } from "@shared/components/button/button.component";
 import { MatIcon } from "@angular/material/icon";
 import { ScrollAnimationDirective } from "@shared/directives/scroll-animation.directive";
+import { IS_MOBILE } from "@shared/tokens/is-mobile.token";
 
 @Component({
     selector: "[projects-section]",
@@ -11,6 +12,8 @@ import { ScrollAnimationDirective } from "@shared/directives/scroll-animation.di
     imports: [ButtonComponent, MatIcon, ScrollAnimationDirective],
 })
 export class ProjectsSectionComponent {
+    isMobile = inject(IS_MOBILE);
+
     projects = [
         {
             title: "CryptoCommunity",

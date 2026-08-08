@@ -1,4 +1,5 @@
 @use "_mixins/rem" as *;
+@use "_mixins/breakpoints" as *;
 
 .section {
     position: relative;
@@ -34,7 +35,7 @@
     }
     
     &--padding {
-        padding: clamp(32px, 7vw, 128px) 0;
+        padding: clamp(48px, 7vw, 128px) 0;
     }
 }
 
@@ -70,11 +71,20 @@
 }
 
 .section-title {
-    margin: rem(16px) 0 rem(52px);
+    margin: rem(16px) 0 clamp(24px, 3vw, rem(52px));
     font-size: clamp(24px, 3vw, 52px);
     font-weight: 900;
     
     span {
         color: var(--primary)
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .section {
+        &--experience,
+        &--contact {
+            position: static;
+        }
     }
 }

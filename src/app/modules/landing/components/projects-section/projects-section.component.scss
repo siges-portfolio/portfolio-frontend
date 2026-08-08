@@ -1,4 +1,5 @@
 @use '_mixins/rem' as *;
+@use '_mixins/breakpoints' as *;
 
 .projects {
   &__list {    
@@ -59,7 +60,7 @@
   &__title-wrapper {
     display: flex;
     align-items: center;
-    gap: rem(48px);
+    gap: clamp(16px, 2vw, rem(48px));
     margin-right: auto;
   }
   
@@ -187,5 +188,23 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: rem(16px);
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .project {
+    &__summary,
+    &__content {
+      padding: 16px;
+      flex-direction: column;
+    }
+
+    &__summary {
+      gap: 16px
+    }
+
+    &__content-link {
+      width: 100%;
+    }
   }
 }

@@ -1,4 +1,5 @@
 @use "_mixins/rem" as *;
+@use "_mixins/breakpoints" as *;
 
 .contact {
     &__container {
@@ -11,7 +12,7 @@
     &__content {
         display: flex;
         flex-direction: column;
-        gap: rem(48px);
+        gap: clamp(16px, 2vw, rem(48px));
 
         flex-grow: 1;
         max-width: min(520px, 100%);
@@ -35,5 +36,14 @@
         flex-direction: column;
         gap: rem(32px);
         flex-grow: 1;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .contact {
+        &__container {
+            flex-direction: column;
+            align-items: stretch;
+        }
     }
 }

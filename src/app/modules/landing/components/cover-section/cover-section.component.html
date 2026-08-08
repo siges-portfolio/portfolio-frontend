@@ -3,9 +3,11 @@
     <div class="cover__container container">
         <div class="cover__title-wrapper">
             <cover-title animate.enter="animation fade-down" class="cover__title" title="Angular Frontend Developer"></cover-title>
-            <div class="cover__contacts" animate.enter="animation fade-down">
-                <app-contacts></app-contacts>
-            </div>
+            @if (!isMobile) {
+                <div class="cover__contacts" animate.enter="animation fade-down">
+                    <app-contacts></app-contacts>
+                </div>
+            }
         </div>
         <div class="cover__content" animate.enter="animation scale-in">
             <div
@@ -53,7 +55,7 @@
             <div
                 class="cover__footer-inner"
                 scrollAnimation="fadeOutUp"
-                animationRangeStart="contain 60%"
+                animationRangeStart="contain 90%"
                 animationRangeEnd="exit"
             >
                 <div class="cover__availability">
@@ -63,10 +65,12 @@
                     </div>
                     <span>Available for new opportunities</span>
                 </div>
-                <div class="cover__footer-title">
-                    <mat-icon class="material-symbols-outlined" fontIcon="location_on"></mat-icon>
-                    <span>Work Format · Remove · Hybrid · Office (Kyiv/Dnipro)</span>
-                </div>
+                @if (!isMobile) {
+                    <div class="cover__footer-title">
+                        <mat-icon class="material-symbols-outlined" fontIcon="location_on"></mat-icon>
+                        <span>Work Format · Remove · Hybrid · Office (Kyiv/Dnipro)</span>
+                    </div>
+                }
                 <!-- <div class="cover__subtitle">Developer portfolio</div> -->
             </div>
         </div>
