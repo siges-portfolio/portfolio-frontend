@@ -99,3 +99,14 @@
     background-color: color-mix(in srgb, var(--button-accent-color) 10%, transparent);
   }
 }
+
+.button.icon {
+  aspect-ratio: 1/1;
+  padding: 0;
+
+  &:hover {
+    border-color: var(--button-hover-color);
+    color: var(--button-hover-color);
+    background-color: color-mix(in srgb, var(--button-accent-color) 10%, transparent);
+  }
+}

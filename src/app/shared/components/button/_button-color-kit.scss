@@ -9,4 +9,9 @@ $button-color-kit: (
     hover: var(--primary),
     secondary: var(--neutral-0),
   ),
+  gray: (
+    accent: var(--neutral-50),
+    hover: var(--neutral-100),
+    secondary: var(--neutral-0),
+  ),
 )

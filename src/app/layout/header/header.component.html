@@ -1,16 +1,47 @@
 <div class="header">
     <div class="header__container container">
         <main-logo class="header__logo"></main-logo>
-        <nav class="header__navigation">
-            <ul class="header__navigation-list list-style-none">
-                @for (navigationItem of navigationItems; track navigationItem.label) {
-                    <li (click)="scrollTo(navigationItem.target)" class="header__navigation-item">{{ navigationItem.label }}</li>
-                }
-            </ul>
-        </nav>
+        @if (!isMobile) {
+            <nav class="header__navigation">
+                <ul class="header__navigation-list list-style-none">
+                    @for (navigationItem of navigationItems; track navigationItem.label) {
+                        <li (click)="scrollTo(navigationItem.target)" class="header__navigation-item">{{ navigationItem.label }}</li>
+                    }
+                </ul>
+            </nav>
+        }
         <div class="header__actions">
             <theme-switcher></theme-switcher>
-            <button type="button" button-filled class="header__action" color="dark" (click)="scrollTo('#contact')">Contact Me</button>
+            @if (!isMobile) {
+                <button type="button" button-filled class="header__action" color="dark" (click)="scrollTo('#contact')">Contact Me</button>
+            } @else {
+                <button type="button" button-outlined button-icon class="header__action" color="gray" command="show-modal" commandfor="mobile-navigation">
+                    <mat-icon class="material-symbols-outlined" fontIcon="menu"></mat-icon>
+                </button>
+            }
         </div>
     </div>
 </div>
+
+@if (isMobile) {
+    <dialog id="mobile-navigation" class="mobile-navigation">
+        <div class="mobile-navigation__header">
+            <button type="button" button-outlined button-icon class="header__action" color="dark" command="close" commandfor="mobile-navigation">
+                <mat-icon class="material-symbols-outlined" fontIcon="close"></mat-icon>
+            </button>
+        </div>
+        <nav class="mobile-navigation__nav">
+            <ul class="mobile-navigation__nav-list list-style-none">
+                @for (navigationItem of navigationItems; track navigationItem.label) {
+                    <li (click)="scrollTo(navigationItem.target)" class="mobile-navigation__nav-item">
+                        <button button color="dark" command="close" commandfor="mobile-navigation" class="mobile-navigation__nav-item-button">{{ navigationItem.label }}</button>
+                    </li>
+                }
+            </ul>
+        </nav>
+        <div class="mobile-navigation__footer">
+            <app-contacts></app-contacts>
+            <button type="button" size="lg" button-filled color="dark" command="close" commandfor="mobile-navigation" (click)="scrollTo('#contact')" class="mobile-navigation__button">Contact Me</button>
+        </div>
+    </dialog>
+}

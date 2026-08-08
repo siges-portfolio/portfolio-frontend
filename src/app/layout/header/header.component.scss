@@ -1,4 +1,5 @@
 @use '_mixins/rem' as *;
+@use '_mixins/breakpoints' as *;
 
 :host {
     position: fixed;
@@ -9,7 +10,7 @@
 
 .header {
     border-bottom: 1px solid transparent;
-
+    
     animation: sticky-header 1s ease-in-out forwards;
     animation-timeline: scroll();
     animation-range: entry 0% cover 100px;
@@ -18,7 +19,7 @@
     
     &__container {
         min-height: 64px;
-
+        
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
@@ -32,15 +33,15 @@
         display: flex;
         align-items: center;
         gap: 8px;
-
+        
         user-select: none;
     }
-
+    
     &__navigation-item {
         position: relative;
-
+        
         padding: 6px 10px;
-
+        
         letter-spacing: 1.5px;
         text-transform: uppercase;
         font-size: 12px;
@@ -51,48 +52,48 @@
         
         &:hover {
             color: var(--neutral-100);
-
+            
             &:before,
             &:after {
                 opacity: 1;
                 transform: translate(0, 0);
             }
         }
-
+        
         &:before,
         &:after {
             position: absolute;
             width: 10px;
             aspect-ratio: 1/1;
             content: '';
-
+            
             opacity: 0;
             transition: opacity var(--transition-fast), transform var(--transition-fast);
         }
-
+        
         &:before {
             top: 0;
             right: 0;
-
+            
             border-top: 1px solid;
             border-right: 1px solid;
             border-color: var(--primary);
-
+            
             transform: translate(-6px, 4px);
         }
-
+        
         &:after {
             bottom: 0;
             left: 0;
-
+            
             border-bottom: 1px solid;
             border-left: 1px solid;
             border-color: var(--primary);
-
+            
             transform: translate(6px, -4px);
         }
     }
-
+    
     
     &__actions {
         display: flex;
@@ -106,22 +107,82 @@
     }
 }
 
-// [animation="header"] {
-//   --animation-opacity-from: 1;
-//   --animation-opacity-to: 0;
+.mobile-navigation {
+    position: fixed;
+    inset: 0;
 
-//   --animation-translate-from: 0 0;
-//   --animation-translate-to: 0 -80px;
+    inline-size: 100dvw;
+    block-size: 100dvh;
 
-//   --animation-scale-from: 1;
-//   --animation-scale-to: .95;
-// }
+    margin: 0;
+    padding: 16px;
+
+    max-inline-size: none;
+    max-block-size: none;
+
+    flex-direction: column;
+    justify-content: space-between;
+    
+    background-color: color-mix(in srgb, var(--neutral-0) 80%, transparent 20%);
+    backdrop-filter: blur(15px);
+    
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    
+    color: var(--neutral-80);
+    font-family: var(--font-base);
+    transition: transform var(--transition-base), opacity var(--transition-base);
+    
+    &[open] {
+        display: flex;
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    @starting-style {
+        &[open] {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
+    &__nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px
+    }
+
+    &__nav-item-button {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        padding: 16px;
+    }
+
+    &__button {
+        width: 100%;
+    }
+}
 
 @keyframes sticky-header {
     0% {
         background-color: transparent;
     }
-
+    
     100% {
         border-color: var(--border);
         backdrop-filter: blur(12px);
@@ -129,3 +190,15 @@
     }
 }
 
+@include media-breakpoint-down(sm) {
+    .header {
+        &__container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        &__action {
+            min-width: initial;
+        }
+    }
+}
