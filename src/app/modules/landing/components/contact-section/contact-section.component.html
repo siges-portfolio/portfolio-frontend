@@ -29,7 +29,7 @@
             <form-field>
                 <mat-icon form-prefix autofocus class="material-symbols-outlined" fontIcon="chat_bubble"></mat-icon>
                 <span form-label-prefix>Message</span>
-                <textarea rs-input rows="6" autocomplete="off" [placeholder]="'example@gmail.com'" formControlName="message"></textarea>
+                <textarea data-lenis-prevent rs-input autocomplete="off" [placeholder]="'example@gmail.com'" formControlName="message"></textarea>
             </form-field>
             <button button-filled size="lg" color="dark" type="button" [disabled]="contactForm.invalid" [loading]="false">
                 <span>Send message</span>
