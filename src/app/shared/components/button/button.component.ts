@@ -1,7 +1,7 @@
 import { Component, ElementRef, inject, input, OnInit, ViewEncapsulation } from '@angular/core';
 
 type ButtonColor = 'primary' | 'dark' | 'gray';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 
 @Component({
   standalone: true,
