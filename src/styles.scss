@@ -29,7 +29,6 @@ a {
 a, button {
   transition: transform var(--transition-fast);
   
-  &:focus,
   &:active {
     transform: scale(0.95);
   }

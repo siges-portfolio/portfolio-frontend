@@ -31,7 +31,7 @@
                 <span form-label-prefix>Message</span>
                 <textarea data-lenis-prevent rs-input autocomplete="off" [placeholder]="'example@gmail.com'" formControlName="message"></textarea>
             </form-field>
-            <button button-filled size="lg" color="dark" type="button" [disabled]="contactForm.invalid" [loading]="false" (click)="sendMessage()">
+            <button button-filled size="lg" color="dark" type="button" [disabled]="contactForm.invalid" [loading]="loading" (click)="sendMessage()">
                 <span>Send message</span>
                 <mat-icon class="material-symbols-outlined" fontIcon="arrow_outward"></mat-icon>
             </button>
