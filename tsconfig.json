@@ -16,7 +16,7 @@
     "strictPropertyInitialization": false,
     "paths": {
       "@environment": [
-        "./src/environments/environment"
+        "./src/environment/environments"
       ],
       "@core/*": [
         "./src/app/core/*"

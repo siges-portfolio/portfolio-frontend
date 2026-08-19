@@ -2,10 +2,16 @@
 @use '_mixins/breakpoints' as *;
 
 .cover {
+    position: relative;
     display: flex;
     flex-direction: column;
     
     min-height: max(100dvh, 840px);
+
+    &__background {
+        position: absolute;
+        inset: 0;
+    }
     
     &__grid {
         --columns: 8;
