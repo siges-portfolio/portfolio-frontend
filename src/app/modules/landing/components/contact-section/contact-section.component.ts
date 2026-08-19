@@ -19,7 +19,7 @@ import { finalize, Subject, takeUntil } from "rxjs";
 export class ContactSectionComponent implements OnDestroy {
     destroy$ = new Subject<void>
     
-    loading = false;
+    loading = signal<boolean>(false);
     contactService = inject(ContactService)
     
     contactForm = new FormGroup({
@@ -29,18 +29,14 @@ export class ContactSectionComponent implements OnDestroy {
     })
     
     sendMessage() {
-        this.loading = true;
+        this.loading.set(true);
         
         this.contactService.sendMessage(this.contactForm.getRawValue())
-        .pipe(takeUntil(this.destroy$), finalize(() => this.loading = false))
-        .subscribe({
-            next: (res) => {
-                console.log(res)
-            },
-            
+        .pipe(takeUntil(this.destroy$), finalize(() => this.loading.set(false)))
+        .subscribe({         
             error: (error) => {
                 console.error(error);
-            }
+            },
         })
     }
     

@@ -67,10 +67,6 @@ export class FormFieldComponent implements OnDestroy {
 
   constructor() {
     effect(() => {
-      console.log(this.messages())
-    })
-
-    effect(() => {
       const field = this.field();
       if (!field || this.#initialized) return;
 
