@@ -51,32 +51,14 @@
           @case ('required') {
             <span>This field is required.</span>
           }
-          @case ('minlength') {
-            <span>Minimum length is <mark>{{ message.value.requiredLength }}</mark> characters, current length: <mark class="actual">{{ message.value.actualLength }}</mark>.</span>
+          @case ('minLength') {
+            <span>Minimum length is <mark>{{ message.value.minLength }}</mark> characters, current length: <mark class="actual">{{ controlValue()?.length ?? 0 }}</mark>.</span>
           }
-          @case ('maxlength') {
-            <span>Maximum length is <mark>{{ message.value.requiredLength }}</mark> characters, current length: <mark class="actual">{{ message.value.actualLength }}</mark>.</span>
+          @case ('maxLength') {
+            <span>Maximum length is <mark>{{ message.value.maxLength }}</mark> characters, current length: <mark class="actual">{{ controlValue()?.length ?? 0 }}</mark>.</span>
           }
-          @case ('validEmail') {
+          @case ('email') {
             <span>Email address is invalid.</span>
-          }
-          @case ('passwordLowercase') {
-            <span>Password must contain at least one <mark>lowercase</mark> letter.</span>
-          }
-          @case ('passwordUppercase') {
-            <span>Password must contain at least one <mark>uppercase</mark> letter.</span>
-          }
-          @case ('passwordDigit') {
-            <span>Password must contain at least one <mark>digit</mark>.</span>
-          }
-          @case ('passwordSymbol') {
-            <span>Password must contain at least one <mark>special symbol</mark>.</span>
-          }
-          @case ('passwordMatch') {
-            <span>Passwords do not match.</span>
-          }
-          @case ('phone') {
-            <span>Phone number is invalid.</span>
           }
         }
       </div>

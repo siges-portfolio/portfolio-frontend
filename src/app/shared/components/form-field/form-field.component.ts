@@ -1,15 +1,14 @@
 import {
-  AfterContentInit,
   Component,
   computed,
   contentChild,
   effect,
   input,
   OnDestroy,
-  OnInit,
   signal, ViewEncapsulation
 } from '@angular/core';
 import { TouchedChangeEvent, ValidationErrors } from '@angular/forms';
+import { ValidationError } from '@angular/forms/signals';
 import { MatIcon } from '@angular/material/icon';
 import { Subject, takeUntil } from 'rxjs';
 import { FormFieldControl } from '@shared/components/form-field/form-field-control';  
@@ -27,7 +26,7 @@ import { NgTemplateOutlet } from '@angular/common';
     '[class.touched]': 'isTouched()',
     '[class.disabled]': 'fieldDisabled()',
     '[class.error]': 'hasErrors',
-    '[class.textarea]': 'field()?.elementRef?.nativeElement.tagName === "TEXTAREA"',
+    '[class.textarea]': 'field()?.elementRef?.nativeElement?.tagName === "TEXTAREA"',
   },
   encapsulation: ViewEncapsulation.None,
   imports: [MatIcon, TooltipDirective, NgTemplateOutlet],
@@ -36,7 +35,7 @@ export class FormFieldComponent implements OnDestroy {
   #destroy$: Subject<void> = new Subject();
   #initialized: boolean = false;
 
-  field = contentChild<FormFieldControl<any>>(FormFieldControl);
+  field = contentChild<FormFieldControl<string>>(FormFieldControl);
 
   appearance = input<'flat' | 'outlined'>('outlined');
   labelPosition = input<'top' | 'left'>('top');
@@ -48,7 +47,7 @@ export class FormFieldComponent implements OnDestroy {
   controlValue = signal<string | null>(null);
   isTouched = signal<boolean>(false);
   isPassword = signal<boolean>(false);
-  validationErrors = signal<ValidationErrors | null>(null);
+  validationErrors = signal<ValidationErrors | readonly ValidationError[] | null>(null);
 
   messages = computed<{ key: string; value: any }[] | null>(() => {
     const { touched, validation } = {
@@ -56,6 +55,10 @@ export class FormFieldComponent implements OnDestroy {
       validation: this.validationErrors(),
     };
     if (!touched || !validation) return null;
+
+    if (Array.isArray(validation)) {
+      return validation.map(error => ({ key: error.kind, value: error }));
+    }
 
     const required = Object(validation).hasOwnProperty('required');
     if (required) return [{ key: 'required', value: true }];
@@ -73,10 +76,24 @@ export class FormFieldComponent implements OnDestroy {
       this.fieldType.set(field.elementRef.nativeElement.type);
       this.isPassword.set(field.elementRef.nativeElement.type === 'password');
 
+      if (this.hideValidation()) return;
+
+      if (field.signalField) {
+        const state = field.signalField.state();
+
+        this.fieldDisabled.set(state.disabled());
+        this.isTouched.set(state.touched());
+        this.controlValue.set(String(state.value() ?? ''));
+        this.validationErrors.set(state.errors().length ? state.errors() : null);
+        return;
+      }
+
       const control = field.ngControl?.control;
-      if (!control || this.hideValidation()) return;
+      if (!control) return;
 
       this.fieldDisabled.set(control.disabled)
+      this.controlValue.set(control.value);
+      this.validationErrors.set(control.errors);
 
       control.events.pipe(takeUntil(this.#destroy$)).subscribe((event) => {
         if (event instanceof TouchedChangeEvent) this.isTouched.set(event.touched);
