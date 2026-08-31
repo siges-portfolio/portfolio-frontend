@@ -16,8 +16,8 @@ import { IS_MOBILE } from "@shared/tokens/is-mobile.token";
 export class CoverSectionComponent {
     lenis = inject(LenisService);
     isMobile = inject(IS_MOBILE);
-
+    
     scrollTo(target: ScrollToTarget) {
         this.lenis.scrollTo(target)
-      }
+    }
 }

@@ -190,6 +190,22 @@
     }
 }
 
+@include media-breakpoint-down(lg) {
+    .header {
+        &__container {
+            display: flex;
+        }
+
+        &__navigation {
+            display: none;
+        }
+
+        &__actions {
+            margin-left: auto;
+        }
+    }
+}
+
 @include media-breakpoint-down(sm) {
     .header {
         &__container {

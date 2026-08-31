@@ -193,6 +193,8 @@
 
 @include media-breakpoint-down(sm) {
   .project {
+    position: relative;
+
     &__summary,
     &__content {
       padding: 16px;
@@ -200,7 +202,18 @@
     }
 
     &__summary {
-      gap: 16px
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    &__date {
+      display: none;
+    }
+
+    &__marker {
+      position: absolute;
+      top: 16px;
+      right: 16px;
     }
 
     &__content-link {

@@ -20,6 +20,10 @@ export class HeaderComponent {
 
   navigationItems: {label: string; target: ScrollToTarget}[] = [
     {
+      label: 'About',
+      target: '#about'
+    },
+    {
       label: 'Stack',
       target: '#tech-stack'
     },

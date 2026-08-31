@@ -1,0 +1,135 @@
+@use "_mixins/rem" as *;
+@use "_mixins/breakpoints" as *;
+
+.about {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        gap: rem(32px);
+
+        flex-wrap: wrap;
+    }
+    
+    &__title {
+        line-height: 1;
+    }
+    
+    &__content,
+    &__skills {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+    
+    &__content {
+        max-width: min(100%, 640px);
+    }
+    
+    &__skills {
+        max-width: min(100%, 500px);
+    }
+    
+    &__description-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: rem(32px);
+    }
+    
+    &__description {
+        margin: 0;
+        
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        line-height: 1.6;
+        
+        &--mark {
+            display: flex;
+            gap: rem(24px);
+            
+            &::before {
+
+                content: '';
+                min-width: 2px;
+                background-color: var(--primary);
+            }
+        }
+    }
+    
+    &__description-title {
+        display: block;
+        margin-bottom: 6px;
+        
+        color: var(--primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+    }
+}
+
+.about-skills {
+    display: flex;
+    flex-direction: column;
+    gap: rem(32px);
+    
+    &__title {
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        color: var(--neutral-60);
+    }
+    
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__item {
+        padding: rem(24px) 0;
+        
+        display: flex;
+        align-items: center;
+        gap: rem(24px);
+        
+        border-top: 1px solid var(--border);
+        
+        &:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+    }
+    
+    &__item-number {
+        font-size: 12px;
+        color: var(--primary);
+        font-family: monospace;
+    }
+    
+    &__item-title {
+        font-size: rem(20px);
+        font-weight: 700;
+    }
+    
+    &__item-level {
+        margin-left: auto;
+
+        font-size: 12px;
+        color: var(--neutral-50);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+}
+
+
+@include media-breakpoint-down(md) {
+    .about {
+        &__container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        &__content,
+        &__skills {
+            max-width: 100%;
+        }
+    }
+}

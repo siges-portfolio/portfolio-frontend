@@ -26,11 +26,8 @@
         color: var(--neutral-0);
     }
     
-    &--projects {
-        background-color: var(--neutral-0);
-    }
-    
-    &--experience {
+    &--experience,
+    &--about {
         background-color: var(--neutral-10);
     }
     
