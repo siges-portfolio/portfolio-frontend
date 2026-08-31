@@ -4,7 +4,18 @@
 .section {
     position: relative;
     background-color: var(--neutral-0);
-    
+
+    &--about,
+    &--projects,
+    &--contact {
+        background-color: var(--neutral-10);
+    }
+
+    &--tech-stack {
+        background-color: #111111;
+        color: #FFFFFF;
+    }
+
     &--experience,
     &--contact {
         position: sticky;
@@ -19,16 +30,6 @@
         justify-content: center;
         
         box-sizing: border-box;
-    }
-    
-    &--tech-stack {
-        background-color: var(--neutral-100);
-        color: var(--neutral-0);
-    }
-    
-    &--experience,
-    &--about {
-        background-color: var(--neutral-10);
     }
     
     &--padding {
