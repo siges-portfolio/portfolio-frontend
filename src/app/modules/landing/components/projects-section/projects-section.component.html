@@ -34,8 +34,12 @@
           <div class="project__content">
             <div class="project__content-image">
               <img
-                [attr.src]="`assets/webp/projects/${project.image}`"
-                [attr.alt]="project.title"
+                [ngSrc]="`assets/webp/projects/${project.image}`"
+                [alt]="project.title"
+                [width]="project.imageWidth"
+                [height]="project.imageHeight"
+                sizes="(max-width: 576px) 100vw, 50vw"
+                loading="lazy"
               />
             </div>
             <div class="project__content-info">

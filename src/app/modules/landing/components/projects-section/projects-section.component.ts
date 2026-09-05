@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { MatIcon } from '@angular/material/icon';
@@ -9,7 +10,7 @@ import { IS_MOBILE } from '@shared/tokens/is-mobile.token';
   templateUrl: './projects-section.component.html',
   styleUrls: ['./projects-section.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  imports: [ButtonComponent, MatIcon, ScrollAnimationDirective],
+  imports: [ButtonComponent, MatIcon, NgOptimizedImage, ScrollAnimationDirective],
 })
 export class ProjectsSectionComponent {
   isMobile = inject(IS_MOBILE);
@@ -30,6 +31,8 @@ export class ProjectsSectionComponent {
         'GSAP',
       ],
       image: 'cryptocommunity.webp',
+      imageWidth: 736,
+      imageHeight: 418,
       link: 'https://cryptocommunity-siges.netlify.app/',
       description: `<p>A comprehensive Web3 platform that provides educational materials, news, and tools for learning about blockchain technology, cryptocurrencies, and decentralized applications. The project includes a public section of the website, an authentication system, an admin panel, and internal dashboards for managing educational content and users.</p>
               <p>As part of the project, developed scalable Angular applications featuring a modular architecture, reusable UI components, and integration with a REST API. We implemented secure authentication, access control, administrative tools, interactive dashboards, and functionality for publishing and managing educational materials.</p>
@@ -51,6 +54,8 @@ export class ProjectsSectionComponent {
       summarySkills: ['Native JS', 'Apache ECharts', 'SVG Animations'],
       skills: ['Native JS', 'Apache ECharts', 'SVG Animations', 'HTML/SCSS', 'BEM'],
       image: 'dust-space.webp',
+      imageWidth: 1056,
+      imageHeight: 586,
       link: 'https://dust-space-siges.netlify.app/',
       description: `<p>Deep ecosystem of interconnected crypto products aimed at facilitating the use of cryptocurrencies and accelerating their mass adoption.</p>`,
     },
@@ -60,6 +65,8 @@ export class ProjectsSectionComponent {
       summarySkills: ['Native JS', 'Lottie Animations'],
       skills: ['Native JS', 'Lottie Animations', 'HTML/SCSS', 'BEM'],
       image: 'strange-crypto.webp',
+      imageWidth: 1056,
+      imageHeight: 505,
       link: 'https://strange-crypto-siges.netlify.app/',
       description: `<p>Landing page for a trading crypto bot.</p>`,
     },
@@ -69,6 +76,8 @@ export class ProjectsSectionComponent {
       summarySkills: ['Angular v16', 'Telegram APP', 'TypeScript', 'RxJS'],
       skills: ['Angular v16', 'Telegram APP', 'TypeScript', 'RxJS', 'REST API', 'HTML/SCSS', 'BEM'],
       image: 'micron.webp',
+      imageWidth: 1055,
+      imageHeight: 507,
       link: 'https://micron-siges.netlify.app/',
       description: `<p>A single hub in telegram for staking all user favorite crypto coins crosschain.</p>`,
     },
@@ -78,6 +87,8 @@ export class ProjectsSectionComponent {
       summarySkills: ['Angular v14', 'TypeScript', 'RxJS'],
       skills: ['Angular v14', 'TypeScript', 'RxJS', 'REST API', 'HTML/SCSS', 'BEM'],
       image: 'inv-community.webp',
+      imageWidth: 1055,
+      imageHeight: 502,
       link: 'https://inv-community-siges.netlify.app/',
       description: `<p>Educational platform for the crypto community INV Trading. Contains courses of varying difficulty levels.</p>`,
     },
