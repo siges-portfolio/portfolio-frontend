@@ -1,6 +1,4 @@
-import { DOCUMENT, inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { DOCUMENT, inject, Injectable, Renderer2, RendererFactory2, signal } from '@angular/core';
 
 export enum Themes {
   DARK = 'dark',
@@ -9,19 +7,14 @@ export enum Themes {
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  document = inject(DOCUMENT);
-  renderer: Renderer2 = inject(RendererFactory2).createRenderer(null, null);
+  private readonly document = inject(DOCUMENT);
+  private readonly renderer: Renderer2 = inject(RendererFactory2).createRenderer(null, null);
+  private readonly theme = signal<Themes>(Themes.LIGHT);
 
-  #theme: BehaviorSubject<Themes> = new BehaviorSubject<Themes>(Themes.LIGHT);
-  themeSignal = toSignal(this.#theme);
+  readonly themeSignal = this.theme.asReadonly();
 
   constructor() {
-    const theme = localStorage.getItem('theme') as Themes;
-    const mobilePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? Themes.LIGHT
-      : Themes.DARK;
-
-    this.changeTheme(theme ? theme : mobilePreferred);
+    this.changeTheme(this.getInitialTheme());
   }
 
   changeTheme(theme: Themes): void {
@@ -30,7 +23,20 @@ export class ThemeService {
     htmlRef.classList.remove('dark-theme', 'light-theme');
     this.renderer.addClass(htmlRef, `${theme}-theme`);
 
-    localStorage.setItem('theme', theme);
-    this.#theme.next(theme);
+    this.document.defaultView?.localStorage.setItem('theme', theme);
+    this.theme.set(theme);
+  }
+
+  private getInitialTheme(): Themes {
+    const storage = this.document.defaultView?.localStorage;
+    const storedTheme = storage?.getItem('theme');
+
+    if (storedTheme === Themes.DARK || storedTheme === Themes.LIGHT) {
+      return storedTheme;
+    }
+
+    return this.document.defaultView?.matchMedia('(prefers-color-scheme: dark)').matches
+      ? Themes.DARK
+      : Themes.LIGHT;
   }
 }
