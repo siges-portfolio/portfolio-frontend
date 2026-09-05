@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass } from '@angular/common';
 
-export type SwitchValues = Record<string, string>
+export type SwitchValues = Record<string, string>;
 
 @Component({
   standalone: true,
@@ -11,11 +11,13 @@ export type SwitchValues = Record<string, string>
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss'],
   imports: [MatIconModule, NgClass],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => SwitchComponent),
-    multi: true
-  }]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SwitchComponent),
+      multi: true,
+    },
+  ],
 })
 export class SwitchComponent implements ControlValueAccessor {
   private onChange: (value: any) => void = () => {};
@@ -27,17 +29,17 @@ export class SwitchComponent implements ControlValueAccessor {
   value: string | null;
   activeIndex: number = 0;
 
-  _values: { key: string, value: string }[] | null = null;
+  _values: { key: string; value: string }[] | null = null;
   @Input()
   set values(value: SwitchValues) {
     if (!value) return;
 
     this._values = Object.entries(value).map(([key, value]) => {
-      return { key, value }
+      return { key, value };
     });
   }
 
-  get values(): { key: string, value: string }[] | null {
+  get values(): { key: string; value: string }[] | null {
     return this._values;
   }
 
@@ -70,7 +72,7 @@ export class SwitchComponent implements ControlValueAccessor {
   setActiveIndex() {
     if (!this.values || !this.value) this.activeIndex = 0;
 
-    const itemIndex = this.values?.findIndex(item => item.key === this.value);
+    const itemIndex = this.values?.findIndex((item) => item.key === this.value);
     this.activeIndex = itemIndex ? (itemIndex === -1 ? 0 : itemIndex) : 0;
   }
 

@@ -1,8 +1,8 @@
-@forward "config";
-@forward "_animations/scroll-animations";
-@forward "_animations/base-animations";
+@forward 'config';
+@forward '_animations/scroll-animations';
+@forward '_animations/base-animations';
 
-@use "_mixins/breakpoints" as *;
+@use '_mixins/breakpoints' as *;
 
 html {
   font-size: 16px;
@@ -12,10 +12,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  
+
   background-color: var(--background);
   color: var(--neutral-70);
-  
+
   font-family: var(--font-base);
   font-weight: 400;
   line-height: 1.4;
@@ -26,9 +26,10 @@ a {
   text-decoration: none;
 }
 
-a, button {
+a,
+button {
   transition: transform var(--transition-fast);
-  
+
   &:active {
     transform: scale(0.95);
   }
@@ -42,13 +43,11 @@ ul:not(.list-style-none) {
   padding: 0;
   margin: 0;
   list-style: none;
-  
-  li {
-    
 
+  li {
     &::before {
       display: inline-block;
-      content: "";
+      content: '';
       width: 4px;
       height: 4px;
       margin-right: 12px;
@@ -56,14 +55,19 @@ ul:not(.list-style-none) {
       border-radius: 20px;
       background-color: var(--primary);
     }
-  } 
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-  
+
   color: var(--neutral-100);
-  
+
   font-family: var(--font-title);
   font-weight: 700;
 }
@@ -123,14 +127,14 @@ textarea {
   }
 
   &::placeholder {
-    color: var(--neutral-50)
+    color: var(--neutral-50);
   }
 }
 
 textarea {
   min-height: 5lh;
   max-height: 12lh;
-  
+
   field-sizing: content;
   resize: none;
 }
@@ -146,13 +150,13 @@ textarea {
   margin: 0 auto;
   padding: 0 $container-padding;
   box-sizing: border-box;
-  
+
   @each $breakpoint, $max-width in reverse($container-max-width) {
     @include container-breakpoints(
-    max-width,
-    (
-    $breakpoint: $max-width,
-    )
+      max-width,
+      (
+        $breakpoint: $max-width,
+      )
     );
   }
 }
@@ -183,4 +187,3 @@ html.lenis body {
   transition-duration: 1ms;
   transition-behavior: allow-discrete;
 }
-

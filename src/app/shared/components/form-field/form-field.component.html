@@ -15,8 +15,14 @@
   </div>
   <div class="form-field__messages-container">
     @if (messages()) {
-      <span class="form-field__messages-notification form-field__messages-notification--error" [tooltip]="messages() ? messagesTooltip : null">
-        <mat-icon class="material-symbols-outlined icon icon--xs" fontIcon="question_mark"></mat-icon>
+      <span
+        class="form-field__messages-notification form-field__messages-notification--error"
+        [tooltip]="messages() ? messagesTooltip : null"
+      >
+        <mat-icon
+          class="material-symbols-outlined icon icon--xs"
+          fontIcon="question_mark"
+        ></mat-icon>
       </span>
     } @else if (isTouched() && controlValue()) {
       <span class="form-field__messages-notification form-field__messages-notification--success">
@@ -39,7 +45,9 @@
 </div>
 
 <ng-template #messagesTooltip>
-  <ng-container *ngTemplateOutlet="messagesTooltipContent; context: { messages: messages() }"></ng-container>
+  <ng-container
+    *ngTemplateOutlet="messagesTooltipContent; context: { messages: messages() }"
+  ></ng-container>
 </ng-template>
 
 <ng-template #messagesTooltipContent let-messages="messages">
@@ -52,10 +60,18 @@
             <span>This field is required.</span>
           }
           @case ('minLength') {
-            <span>Minimum length is <mark>{{ message.value.minLength }}</mark> characters, current length: <mark class="actual">{{ controlValue()?.length ?? 0 }}</mark>.</span>
+            <span
+              >Minimum length is <mark>{{ message.value.minLength }}</mark> characters, current
+              length: <mark class="actual">{{ controlValue()?.length ?? 0 }}</mark
+              >.</span
+            >
           }
           @case ('maxLength') {
-            <span>Maximum length is <mark>{{ message.value.maxLength }}</mark> characters, current length: <mark class="actual">{{ controlValue()?.length ?? 0 }}</mark>.</span>
+            <span
+              >Maximum length is <mark>{{ message.value.maxLength }}</mark> characters, current
+              length: <mark class="actual">{{ controlValue()?.length ?? 0 }}</mark
+              >.</span
+            >
           }
           @case ('email') {
             <span>Email address is invalid.</span>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '@layout/header/header.component';
-import { RouterOutlet } from "@angular/router";
-import { ToastContainerComponent } from "@shared/components/toast/toast-container.component";
+import { RouterOutlet } from '@angular/router';
+import { ToastContainerComponent } from '@shared/components/toast/toast-container.component';
 
 @Component({
   selector: 'app-base-layout',

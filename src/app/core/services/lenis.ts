@@ -15,10 +15,7 @@ export class LenisService {
     anchors: true,
   });
 
-  scrollTo(
-    target: ScrollToTarget,
-    options?: Parameters<Lenis['scrollTo']>[1]
-  ) {
+  scrollTo(target: ScrollToTarget, options?: Parameters<Lenis['scrollTo']>[1]) {
     this.lenis.scrollTo(target, options);
   }
 

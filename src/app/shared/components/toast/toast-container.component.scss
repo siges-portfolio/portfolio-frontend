@@ -1,4 +1,4 @@
-@use "_mixins/rem" as *;
+@use '_mixins/rem' as *;
 
 .toast-container {
   position: fixed;
@@ -89,11 +89,21 @@
 }
 
 @keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-10px) }
-  to { opacity: 1; transform: translateY(0) }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -1,63 +1,63 @@
 @use '_mixins/rem' as *;
 @use '_mixins/breakpoints' as *;
 
-.tech-stack {   
-    &__title {
-        color: #FFFFFF;
-    }
-    
-    &__items {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1px;
-        
-        border: 1px solid #3A3A3A;
-        background-color: #222222;
-        border-radius: var(--radius-md);
-        overflow: hidden;
-    }
-    
-    &__item {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: rem(24px);
-        
-        cursor: default;
-        background-color: #111111;
-        
-        transition: background-color var(--transition-fast);
-        
-        &:hover {
-            background-color: color-mix(in srgb, #FFFFFF 1%, transparent 99%);
-            
-            .tech-stack {
-                &__item-title {
-                    color: var(--primary)
-                }
+.tech-stack {
+  &__title {
+    color: #ffffff;
+  }
 
-                &__item-subtitle {
-                    color: #757575
-                }
-            }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+
+    border: 1px solid #3a3a3a;
+    background-color: #222222;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: rem(24px);
+
+    cursor: default;
+    background-color: #111111;
+
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background-color: color-mix(in srgb, #ffffff 1%, transparent 99%);
+
+      .tech-stack {
+        &__item-title {
+          color: var(--primary);
         }
+
+        &__item-subtitle {
+          color: #757575;
+        }
+      }
     }
-    
-    &__item-title {
-        font-weight: 600;
-        transition: color var(--transition-fast);
-    }
-    
-    &__item-subtitle {
-        font-size: 12px;
-        color: #5A5A5A
-    }
+  }
+
+  &__item-title {
+    font-weight: 600;
+    transition: color var(--transition-fast);
+  }
+
+  &__item-subtitle {
+    font-size: 12px;
+    color: #5a5a5a;
+  }
 }
 
 @include media-breakpoint-down(sm) {
-    .tech-stack {
-        &__items {
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        }
+  .tech-stack {
+    &__items {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
+  }
 }

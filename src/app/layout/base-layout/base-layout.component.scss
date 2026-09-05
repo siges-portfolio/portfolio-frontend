@@ -1,16 +1,16 @@
 :host {
-    min-height: 100dvh;
+  min-height: 100dvh;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .base-layout {
-    &__header {
-        --animation-delay: 0.5s;
-    }
+  &__header {
+    --animation-delay: 0.5s;
+  }
 
-    &__footer {
-        margin-top: auto;
-    }
+  &__footer {
+    margin-top: auto;
+  }
 }

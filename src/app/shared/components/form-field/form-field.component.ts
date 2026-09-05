@@ -5,13 +5,14 @@ import {
   effect,
   input,
   OnDestroy,
-  signal, ViewEncapsulation
+  signal,
+  ViewEncapsulation,
 } from '@angular/core';
 import { TouchedChangeEvent, ValidationErrors } from '@angular/forms';
 import { ValidationError } from '@angular/forms/signals';
 import { MatIcon } from '@angular/material/icon';
 import { Subject, takeUntil } from 'rxjs';
-import { FormFieldControl } from '@shared/components/form-field/form-field-control';  
+import { FormFieldControl } from '@shared/components/form-field/form-field-control';
 import { TooltipDirective } from '../tooltip/tooltip.directive';
 import { NgTemplateOutlet } from '@angular/common';
 
@@ -57,7 +58,7 @@ export class FormFieldComponent implements OnDestroy {
     if (!touched || !validation) return null;
 
     if (Array.isArray(validation)) {
-      return validation.map(error => ({ key: error.kind, value: error }));
+      return validation.map((error) => ({ key: error.kind, value: error }));
     }
 
     const required = Object(validation).hasOwnProperty('required');
@@ -91,7 +92,7 @@ export class FormFieldComponent implements OnDestroy {
       const control = field.ngControl?.control;
       if (!control) return;
 
-      this.fieldDisabled.set(control.disabled)
+      this.fieldDisabled.set(control.disabled);
       this.controlValue.set(control.value);
       this.validationErrors.set(control.errors);
 

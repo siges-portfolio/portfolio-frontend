@@ -9,12 +9,8 @@
   --animation-blur: 10px;
   --animation-angle: -5deg;
 
-  animation:
-    var(--animation-name)
-    var(--animation-duration)
-    var(--animation-easing)
-    var(--animation-delay)
-    var(--animation-fill-mode);
+  animation: var(--animation-name) var(--animation-duration) var(--animation-easing)
+    var(--animation-delay) var(--animation-fill-mode);
 }
 
 .fade-in {
@@ -180,15 +176,11 @@
 @keyframes rotate-in {
   from {
     opacity: 0;
-    transform:
-      rotate(var(--animation-angle))
-      translateY(var(--animation-offset));
+    transform: rotate(var(--animation-angle)) translateY(var(--animation-offset));
   }
 
   to {
     opacity: 1;
-    transform:
-      rotate(0)
-      translateY(0);
+    transform: rotate(0) translateY(0);
   }
 }

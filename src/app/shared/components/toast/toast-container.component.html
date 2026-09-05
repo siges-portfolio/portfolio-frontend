@@ -1,6 +1,11 @@
 <div class="toast-container">
   @for (toast of toasts(); track toast.id) {
-    <div class="toast-container__item" animate.enter="fade-down" animate.leave="fade-up" [ngClass]="toast.type">
+    <div
+      class="toast-container__item"
+      animate.enter="fade-down"
+      animate.leave="fade-up"
+      [ngClass]="toast.type"
+    >
       @if (toast.icon) {
         <div class="toast-container__item-icon">
           <mat-icon class="material-symbols-outlined" [fontIcon]="toast.icon"></mat-icon>

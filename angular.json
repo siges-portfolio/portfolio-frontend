@@ -34,13 +34,9 @@
               "src/assets"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/scss/"
-              ]
+              "includePaths": ["src/scss/"]
             },
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {

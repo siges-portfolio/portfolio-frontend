@@ -1,4 +1,4 @@
-@use "_mixins/rem" as *;
+@use '_mixins/rem' as *;
 
 :host {
   --items-padding: calc(var(--spacing-unit) * 0.5);
@@ -36,7 +36,7 @@
     background-color: var(--neutral-20);
     border-radius: var(--border-radius);
 
-    --item-width: calc((100% - var(--items-padding) * 2 ) / var(--items-count));
+    --item-width: calc((100% - var(--items-padding) * 2) / var(--items-count));
   }
 
   &__item {

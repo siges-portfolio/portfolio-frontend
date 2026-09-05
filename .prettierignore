@@ -1,0 +1,7 @@
+/.angular
+/.agents
+/dist
+/node_modules
+/out-tsc
+/tmp
+package-lock.json

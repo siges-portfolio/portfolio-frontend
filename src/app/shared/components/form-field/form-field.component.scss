@@ -66,7 +66,7 @@
     font-size: 14px;
     font-weight: 500;
     color: var(--neutral-60);
-    
+
     &:has(.form-field__label-left:empty) {
       display: none;
     }
@@ -192,7 +192,7 @@
       background: none;
 
       &.actual {
-        color: var(--error)
+        color: var(--error);
       }
     }
   }

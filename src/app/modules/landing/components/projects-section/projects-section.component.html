@@ -33,7 +33,10 @@
           </summary>
           <div class="project__content">
             <div class="project__content-image">
-              <img [attr.src]="`assets/webp/projects/${project.image}`" [attr.alt]="project.title">
+              <img
+                [attr.src]="`assets/webp/projects/${project.image}`"
+                [attr.alt]="project.title"
+              />
             </div>
             <div class="project__content-info">
               <div class="project__content-description" [innerHTML]="project.description"></div>
@@ -43,7 +46,13 @@
                 }
               </div>
               <div class="project__content-links">
-                <a button-filled class="project__content-link" color="dark" [attr.href]="project.link" target="_blank">
+                <a
+                  button-filled
+                  class="project__content-link"
+                  color="dark"
+                  [attr.href]="project.link"
+                  target="_blank"
+                >
                   <span>Link</span>
                   <mat-icon class="material-symbols-outlined" fontIcon="arrow_outward"></mat-icon>
                 </a>

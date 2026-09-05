@@ -9,7 +9,7 @@ import { SwitchComponent } from '@shared/components/switch/switch.component';
   selector: 'theme-switcher',
   templateUrl: './theme-switcher.component.html',
   styleUrls: ['./theme-switcher.component.scss'],
-  imports: [SwitchComponent, ReactiveFormsModule]
+  imports: [SwitchComponent, ReactiveFormsModule],
 })
 export class ThemeSwitcherComponent implements OnDestroy {
   destroy$: Subject<void> = new Subject<void>();
@@ -27,8 +27,8 @@ export class ThemeSwitcherComponent implements OnDestroy {
 
     if (currentTheme) this.switchControl.setValue(currentTheme);
     this.switchControl.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
-      this.themeService.changeTheme(value)
-    })
+      this.themeService.changeTheme(value);
+    });
   }
 
   ngOnDestroy() {

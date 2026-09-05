@@ -17,16 +17,18 @@ export class ThemeService {
 
   constructor() {
     const theme = localStorage.getItem('theme') as Themes;
-    const mobilePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? Themes.LIGHT : Themes.DARK;
+    const mobilePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? Themes.LIGHT
+      : Themes.DARK;
 
-    this.changeTheme(theme ? theme : mobilePreferred)
+    this.changeTheme(theme ? theme : mobilePreferred);
   }
 
   changeTheme(theme: Themes): void {
-    const htmlRef= this.document.documentElement;
+    const htmlRef = this.document.documentElement;
 
     htmlRef.classList.remove('dark-theme', 'light-theme');
-    this.renderer.addClass(htmlRef, `${ theme }-theme`);
+    this.renderer.addClass(htmlRef, `${theme}-theme`);
 
     localStorage.setItem('theme', theme);
     this.#theme.next(theme);

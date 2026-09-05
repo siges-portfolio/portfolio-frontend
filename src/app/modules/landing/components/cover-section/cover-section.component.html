@@ -1,74 +1,100 @@
 <div class="cover">
-    <div class="cover__container container">
-        <div class="cover__title-wrapper">
-            <cover-title animate.enter="animation fade-down" class="cover__title" title="Angular Frontend Developer"></cover-title>
-            @if (!isMobile) {
-                <div class="cover__contacts" animate.enter="animation fade-down">
-                    <app-contacts></app-contacts>
-                </div>
-            }
+  <div class="cover__container container">
+    <div class="cover__title-wrapper">
+      <cover-title
+        animate.enter="animation fade-down"
+        class="cover__title"
+        title="Angular Frontend Developer"
+      ></cover-title>
+      @if (!isMobile) {
+        <div class="cover__contacts" animate.enter="animation fade-down">
+          <app-contacts></app-contacts>
         </div>
-        <div class="cover__content" animate.enter="animation scale-in">
-            <div class="cover__description">
-                <p
-                    scrollAnimation="fadeOutUp"
-                    animationRangeStart="contain 75%"
-                    animationRangeEnd="exit"
-                >Frontend Developer with 4+ years of experience building web applications with Angular and TypeScript, with a strong focus on architecture, performance, maintainability, and clean code. I combine solid frontend engineering practices with an AI-augmented workflow, using LLMs, AI agents, and modern development tools to research, prototype, solve problems, and deliver better solutions faster.</p>
-            </div>
-            <ul 
-                class="cover__stats list-style-none"
-                scrollAnimation="fadeOutUp"
-                animationRangeStart="contain 80%"
-                animationRangeEnd="exit"
-            >
-                <li class="cover__stat">
-                    <div class="cover__stat-value">4+</div>
-                    <div class="cover__stat-title">years <br> experience</div>
-                </li>
-                <li class="cover__stat">
-                    <div class="cover__stat-value">6</div>
-                    <div class="cover__stat-title">projects <br> shipped</div>
-                </li>
-            </ul>
-            <div
-                class="cover__actions"
-                scrollAnimation="fadeOutUp"
-                animationRangeStart="contain 85%"
-                animationRangeEnd="exit"
-            >
-                <button (click)="scrollTo('#projects')" type="button" button-filled size="lg" class="cover__action" color="dark">
-                    <span>View Projects</span>
-                    <mat-icon class="material-symbols-outlined" fontIcon="arrow_forward"></mat-icon>
-                </button>
-                <button (click)="scrollTo('#contact')" type="button" button-outlined size="lg" class="cover__action" color="dark">
-                    <span>Get in touch</span>
-                    <mat-icon class="material-symbols-outlined" fontIcon="arrow_forward"></mat-icon>
-                </button>
-            </div>
-        </div>
-        <div class="cover__footer" animate.enter="animation fade-up">
-            <div
-                class="cover__footer-inner"
-                scrollAnimation="fadeOutUp"
-                animationRangeStart="contain 90%"
-                animationRangeEnd="exit"
-            >
-                <div class="cover__availability">
-                    <div class="cover__availability-dot">
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <span>Available for new opportunities</span>
-                </div>
-                @if (!isMobile) {
-                    <div class="cover__footer-title">
-                        <mat-icon class="material-symbols-outlined" fontIcon="location_on"></mat-icon>
-                        <span>Work Format · Remove · Hybrid · Office (Kyiv/Dnipro)</span>
-                    </div>
-                }
-                <!-- <div class="cover__subtitle">Developer portfolio</div> -->
-            </div>
-        </div>
+      }
     </div>
+    <div class="cover__content" animate.enter="animation scale-in">
+      <div class="cover__description">
+        <p scrollAnimation="fadeOutUp" animationRangeStart="contain 75%" animationRangeEnd="exit">
+          Frontend Developer with 4+ years of experience building web applications with Angular and
+          TypeScript, with a strong focus on architecture, performance, maintainability, and clean
+          code. I combine solid frontend engineering practices with an AI-augmented workflow, using
+          LLMs, AI agents, and modern development tools to research, prototype, solve problems, and
+          deliver better solutions faster.
+        </p>
+      </div>
+      <ul
+        class="cover__stats list-style-none"
+        scrollAnimation="fadeOutUp"
+        animationRangeStart="contain 80%"
+        animationRangeEnd="exit"
+      >
+        <li class="cover__stat">
+          <div class="cover__stat-value">4+</div>
+          <div class="cover__stat-title">
+            years <br />
+            experience
+          </div>
+        </li>
+        <li class="cover__stat">
+          <div class="cover__stat-value">6</div>
+          <div class="cover__stat-title">
+            projects <br />
+            shipped
+          </div>
+        </li>
+      </ul>
+      <div
+        class="cover__actions"
+        scrollAnimation="fadeOutUp"
+        animationRangeStart="contain 85%"
+        animationRangeEnd="exit"
+      >
+        <button
+          (click)="scrollTo('#projects')"
+          type="button"
+          button-filled
+          size="lg"
+          class="cover__action"
+          color="dark"
+        >
+          <span>View Projects</span>
+          <mat-icon class="material-symbols-outlined" fontIcon="arrow_forward"></mat-icon>
+        </button>
+        <button
+          (click)="scrollTo('#contact')"
+          type="button"
+          button-outlined
+          size="lg"
+          class="cover__action"
+          color="dark"
+        >
+          <span>Get in touch</span>
+          <mat-icon class="material-symbols-outlined" fontIcon="arrow_forward"></mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="cover__footer" animate.enter="animation fade-up">
+      <div
+        class="cover__footer-inner"
+        scrollAnimation="fadeOutUp"
+        animationRangeStart="contain 90%"
+        animationRangeEnd="exit"
+      >
+        <div class="cover__availability">
+          <div class="cover__availability-dot">
+            <span></span>
+            <span></span>
+          </div>
+          <span>Available for new opportunities</span>
+        </div>
+        @if (!isMobile) {
+          <div class="cover__footer-title">
+            <mat-icon class="material-symbols-outlined" fontIcon="location_on"></mat-icon>
+            <span>Work Format · Remove · Hybrid · Office (Kyiv/Dnipro)</span>
+          </div>
+        }
+        <!-- <div class="cover__subtitle">Developer portfolio</div> -->
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,69 +2,69 @@
 @use '_mixins/breakpoints' as *;
 
 .experience-item {
+  display: flex;
+  gap: rem(32px);
+
+  padding: rem(48px) 0;
+
+  border-top: 1px solid var(--border);
+
+  &:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  &__date-wrapper {
+    max-width: min(100%, 420px);
+    flex-grow: 1;
+
     display: flex;
-    gap: rem(32px);
+    flex-direction: column;
+    gap: 8px;
+  }
 
-    padding: rem(48px) 0;
+  &__date {
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--primary);
 
-    border-top: 1px solid var(--border);
-
-    &:last-child {
-        border-bottom: 1px solid var(--border);
+    span {
+      color: var(--neutral-60);
     }
+  }
 
-    &__date-wrapper {
-        max-width: min(100%, 420px);
-        flex-grow: 1;
+  &__location {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
 
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+    color: var(--neutral-50);
+  }
 
-    &__date {
-        font-family: monospace;
-        font-size: 12px;
-        color: var(--primary);
+  &__info {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
 
-        span {
-            color: var(--neutral-60)
-        }
-    }
+  &__title {
+    font-family: var(--base-font);
+  }
 
-    &__location {
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 1px;
+  &__subtitle {
+    font-size: 14px;
+    color: var(--neutral-50);
+  }
 
-        color: var(--neutral-50)
-    }
+  &__description {
+    margin-top: rem(24px);
 
-    &__info {
-        flex-grow: 1;
-        flex-basis: 0;
-    }
-
-    &__title {
-        font-family: var(--base-font);
-    }
-
-    &__subtitle {
-        font-size: 14px;
-        color: var(--neutral-50);
-    }
-
-    &__description {
-        margin-top: rem(24px);
-
-        font-size: 14px;
-    }
+    font-size: 14px;
+  }
 }
 
 @include media-breakpoint-down(sm) {
-    .experience-item {
-        padding: 24px 0;
-        flex-direction: column;
-    }
+  .experience-item {
+    padding: 24px 0;
+    flex-direction: column;
+  }
 }

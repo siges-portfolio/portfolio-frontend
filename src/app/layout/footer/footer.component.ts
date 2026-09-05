@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { MainLogoComponent } from "@shared/components/main-logo/main-logo.component";
+import { MainLogoComponent } from '@shared/components/main-logo/main-logo.component';
 
 @Component({
   standalone: true,

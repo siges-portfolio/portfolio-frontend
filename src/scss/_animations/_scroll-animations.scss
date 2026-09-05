@@ -7,7 +7,8 @@
     animation-timing-function: var(--scroll-animation-easing, cubic-bezier(0.22, 1, 0.36, 1));
     animation-fill-mode: var(--scroll-animation-fill-mode, both);
     animation-timeline: view();
-    animation-range: var(--scroll-animation-range-start, entry 0%) var(--scroll-animation-range-end, exit 100%);
+    animation-range: var(--scroll-animation-range-start, entry 0%)
+      var(--scroll-animation-range-end, exit 100%);
   }
 }
 
@@ -59,7 +60,7 @@
 }
 
 [scrollAnimation='fadeInBoth'] {
-    animation-name: fadeInBoth;
+  animation-name: fadeInBoth;
 }
 
 @keyframes fadeInBoth {
@@ -78,13 +79,16 @@
 
   to {
     opacity: var(--animation-opacity-from, 0);
-    transform: var(--animation-translate-to, translateY(calc(-1 * var(--scroll-animation-offset, 24px))));
+    transform: var(
+      --animation-translate-to,
+      translateY(calc(-1 * var(--scroll-animation-offset, 24px)))
+    );
     scale: var(--animation-scale-to, 1);
   }
 }
 
 [scrollAnimation='fadeInLeftBoth'] {
-    animation-name: fadeInLeftBoth;
+  animation-name: fadeInLeftBoth;
 }
 
 @keyframes fadeInLeftBoth {

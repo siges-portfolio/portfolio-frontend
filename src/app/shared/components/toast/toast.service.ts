@@ -5,11 +5,11 @@ const DEFAULT_DURATION = 5000;
 
 export type ToastType = 'success' | 'error' | 'pending';
 export interface Toast {
-  id: number,
+  id: number;
   type: ToastType;
   message: string;
-  icon?: string,
-  duration?: number
+  icon?: string;
+  duration?: number;
 }
 
 @Injectable({ providedIn: 'root' })
